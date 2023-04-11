@@ -1,0 +1,407 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+
+@font-face {
+	font-family: 'bebas_neueregular';
+	src: url('../fonts/bebasneue-regular-webfont.woff2') format('woff2'),
+			 url('../fonts/bebasneue-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+	box-sizing:border-box;  
+}
+
+button:not[disabled], summary {
+	cursor: pointer;
+}
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	--font1: bebas_neueregular;
+	--purple:#392139;
+	--white: #ffff;
+	--pink: #E16FCC;
+	--pink2: #F8E3FC;
+}
+
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+
+
+body {
+	background-image: url(../images/bg1.png);
+}
+
+h1 {
+	font-family: var(--font1);
+	text-align: center;
+	color: var(--purple);
+	font-size: 8vw;
+}
+
+h2 {
+	font-family: var(--font1);
+	text-align: center;
+	color: var(--purple);
+	font-size: 5vw;
+}
+
+img:nth-of-type(1) {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 23vw;
+}
+
+.bingo-rat {
+	position: relative;
+	font-family: var(--font1);
+}
+
+.bingokaart img:nth-of-type(1) {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 4em;
+	margin-top: 1em;
+}
+
+.bingokaart{
+	position: relative;
+	font-family: var(--font1);
+}
+
+.bingokaart h3 {
+	position: absolute;
+	font-size: 6vw;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.bingokaart #bingo-card {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	width: 250px;
+	height: 250px;
+	top: 5em;
+	left: 1em;
+
+}
+
+.bingo-cell {
+	box-sizing: border-box;
+	width: 2em;
+	font-size: 1.5em;
+	text-align: center;
+	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.bingo-cell.generated {
+	background-color: var(--pink);
+	border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;
+}
+
+#generated-numbers {
+	position: absolute;
+	display: flex;
+	overflow: hidden;
+	overflow-x: scroll;
+	flex-direction: row-reverse;
+	flex-wrap: nowrap;
+	font-size: 1.3em;
+	bottom: -23em;
+	width: 100vw;
+	justify-content: flex-end;
+	}
+	
+#generated-numbers span {
+	position: relative;
+	padding: 0.5em;
+	margin: 0.5em;
+	color: var(--pink2);
+	}
+
+#generated-numbers span::after {
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color:var(--purple);
+	border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;
+	width: 2em;
+	height: 2em; 
+	z-index: -1;
+}
+
+
+button#generate-number {
+	background-color: transparent;
+  border: none;
+  display: flex;
+  margin: 1em 10em;
+}
+
+button#generate-number::after {
+	content: 'click me!';
+	color: var(--purple);
+	font-size: 1.5em;
+}
+
+.gewonnen {
+	position: absolute;
+  z-index: -1;
+	top: 4em;
+	left: 1em;
+  background-image: url("../images/vuurwerk.gif");
+	background-position: center;
+  background-repeat: no-repeat;
+  padding: 1em;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  font-size: 4em;
+  text-align: center;
+  color: var(--white);
+  font-family: var(--font1);
+  }
+
+  
+  .gewonnen.show {
+  opacity: 1;
+	z-index: 999;
+  }
+
+  #sort-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+  }
+
+
+
+/****************/
+/* responsive */
+/****************/
+@media (max-width: 700px) {
+	main {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	h1 {
+		font-size: 5vw;
+	}
+
+	img:nth-of-type(1) {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 15vw;
+	}
+
+	.bingokaart img:nth-of-type(1) {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 18em;
+		margin-top: 1em;
+	}
+
+	.bingokaart .bingo-card {
+		left: -2em;
+	}
+
+	#bingo-card:focus {
+		outline: 2px solid blue;
+	}
+	
+}
+
+
+
+
+@media (min-width: 700px) {
+
+	
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 60vh;
+	}
+
+	h1 {
+		font-size: 5vw;
+	}
+
+	h2 {
+		font-size: 4vw;
+	}
+
+	.bingokaart h3 {
+		font-size: 2em;
+	}
+
+	.bingo-rat {
+		position: relative;
+		font-family: var(--font1);
+	}
+
+
+	button#generate-number {
+		margin-left: 5em;
+	}
+
+	.bingo-rat img:nth-of-type(1):hover {
+		animation: draairat 2s;
+	}
+
+	@keyframes draairat {
+		25% {
+			width: 22vw;
+		}
+
+		50% {
+			width: 23vw;
+		}
+
+		75% {
+			width: 22vw;
+		}
+	}
+
+	button#generate-number::after {
+		content: 'click me!';
+		margin-top: 1em;
+		margin-left: -2em;
+		color: var(--purple);
+		font-size: 1.5em;
+		text-align: none;
+		transform: rotate(30deg);
+	}
+	
+	
+	.bingokaart {
+		margin-left: -2em;
+	}
+
+	.bingokaart img:nth-last-of-type(1) {
+		width: 22em;
+	}
+
+	.bingokaart #bingo-card {
+		width: 20em;
+		height: 23em;
+		top: 6em;
+		left: 1em;
+	}
+
+	.bingo-cell {
+		width: 2em;
+		font-size: 2em;
+	}
+
+	#generated-numbers {
+		font-size: 2em;
+		position: absolute;
+		bottom: -8em;
+		overflow-x: scroll;
+	}
+
+	.gewonnen {
+		top: 3em;
+		left: 5.5em;
+		opacity: 0;
+		font-size: 6em;
+	}
+
+	#sort-buttons {
+		margin-top: 32em;
+		margin-right: -20em;
+	}
+
+}
+
+
+
+
+/****************/
+/* DESKTOP */
+/****************/
+
+@media (min-width: 1035px) {
+
+	h1 {
+		font-size: 4em;
+		
+	}
+
+	h2 {
+		font-size: 2em;
+		margin-top: -1em;
+	}
+
+	.bingokaart h3 {
+		font-size: 2em;
+	}
+
+	#generated-numbers {
+		font-size: 2em;
+		position: absolute;
+		bottom: -7em;
+		overflow-x: scroll;
+	}
+
+
+	#sort-buttons {
+		margin-top: 32em;
+		margin-right: -40em;
+	}
+
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-image: url(../images/bg.png);
+	}
+
+	h1 {
+		color: var(--white);
+	}
+
+	h2 {
+		color: var(--white);
+	}
+
+	#generated-numbers span::after {
+		background-color: var(--pink2);
+	}
+
+	#generated-numbers span {
+		color: var(--purple);
+	}
+
+	button#generate-number::after {
+		color: var(--pink2);
+	}
+}

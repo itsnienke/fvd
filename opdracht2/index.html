@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Nienke Knol">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
+	
+	<link href="styles/style.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+</head>
+<body>
+    <header>
+      <h1>Spin until you get five in a row</h1>
+      <h2>and SCREAM ‘bingo’ to win</h2>
+    </header>
+    <main>
+
+      <div class="gewonnen">BINGO!</div>
+
+      <section class=bingo-rat>
+      <button id="generate-number">
+        <picture>
+          <img src="images/bingorat.png" alt="bingo draairat">
+          <source srcset="images/draairat.png" media="(prefers-color-scheme: dark)"/>
+        
+        </picture>
+      </button>
+      <div id="generated-numbers"></div>
+      </section>
+      
+      <div id="sort-buttons">
+        <button onclick="sortNumbers('asc')">low > high</button>
+        <button onclick="sortNumbers('desc')">high > low</button>
+        <button onclick="sortNumbers('random')">shuffle</button>
+      </div>
+      <section class=bingokaart>
+      <img src="images/Rectangle 8.png" alt="bingokaart">
+      <h3>bingo</h3>
+      <div id="bingo-card" tabindex="0"></div>
+      
+      </section>
+     
+
+    </main>
+    <footer>
+
+    </footer>
+
+
+	<script defer src="scripts/script.js"></script>
+</body>
+	
+</html>
