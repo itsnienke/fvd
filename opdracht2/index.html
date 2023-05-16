@@ -1,57 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="Nienke Knol">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
-	
-	<link href="styles/style.css" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-</head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-    <header>
-      <h1>Spin until you get five in a row</h1>
-      <h2>and SCREAM ‘bingo’ to win</h2>
-    </header>
-    <main>
+    <div>
+        <header>
+            <h1>Spin until you get five in a row</h1>
+            <h2>and SCREAM ‘bingo’ to win</h2>
+        </header>
 
-      <div class="gewonnen">BINGO!</div>
+        <main>
 
-      <section class=bingo-rat>
-      <button id="generate-number">
-        <picture>
-          <img src="images/bingorat.png" alt="bingo draairat">
-          <source srcset="images/draairat.png" media="(prefers-color-scheme: dark)"/>
-        
-        </picture>
-      </button>
-      <div id="generated-numbers"></div>
-      </section>
-      
-      <div id="sort-buttons">
-        <button onclick="sortNumbers('asc')">low > high</button>
-        <button onclick="sortNumbers('desc')">high > low</button>
-        <button onclick="sortNumbers('random')">shuffle</button>
-      </div>
-      <section class=bingokaart>
-      <img src="images/Rectangle 8.png" alt="bingokaart">
-      <h3>bingo</h3>
-      <div id="bingo-card" tabindex="0"></div>
-      
-      </section>
-     
+            <div class="gewonnen">BINGO!</div>
 
-    </main>
-    <footer>
+            <section class="bingo-rad">
+                <button id="generate-number">
+                    <img src="images/bingorad.png" alt="bingo draairad">
+                </button>
+            </section>
 
-    </footer>
+            <section class="bingokaart">
+                <h3>bingo</h3>
+                <ul id="bingo-card"></ul>
+            </section>
 
 
-	<script defer src="scripts/script.js"></script>
+        </main>
+        <footer>
+            <ul id="generated-numbers"></ul>
+        </footer>
+    </div>
+    <script defer src="scripts/script.js"></script>
 </body>
-	
 </html>

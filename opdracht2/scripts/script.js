@@ -16,10 +16,16 @@ while (numbers.length < 25) {
 
 // maakt de nummers op de bingo kaart
 for (let i = 0; i < 25; i++) {
-  const cell = document.createElement('div');
+  const cell = document.createElement('li');
   cell.className = 'bingo-cell';
   cell.innerText = numbers[i];
+  cell.tabIndex = 0;
   cell.addEventListener('click', toggleCell);
+  cell.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+      toggleCell.call(this);
+    }
+  });
   card.appendChild(cell);
 }
 
@@ -38,7 +44,7 @@ function generateNumber() {
   } while (generatedNumbersArray.includes(number));
   
   generatedNumbersArray.push(number);
-  const generatedNumberElement = document.createElement('span');
+  const generatedNumberElement = document.createElement('li');
   generatedNumberElement.textContent = number + ' ';
   generatedNumberElement.addEventListener('click', function() {
     const cells = document.getElementsByClassName('bingo-cell');
@@ -49,28 +55,9 @@ function generateNumber() {
       }
     }
   });
-  generatedNumbers.appendChild(generatedNumberElement);
+  generatedNumbers.prepend(generatedNumberElement);
 }
   
-
-// sorteer knoppen 
-function sortNumbers(order) {
-  const cells = document.querySelectorAll('.bingo-cell');
-  const cellsArray = Array.from(cells);
-  if (order === 'asc') {
-    cellsArray.sort((a, b) => parseInt(a.innerText) - parseInt(b.innerText));
-  } else if (order === 'desc') {
-    cellsArray.sort((a, b) => parseInt(b.innerText) - parseInt(a.innerText));
-  } else if (order === 'random') {
-    cellsArray.sort(() => Math.random() - 0.5);
-  }
-  cellsArray.forEach(cell => {
-    card.appendChild(cell);
-  });
-}
-
-
-
 
 
 
